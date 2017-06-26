@@ -6,6 +6,7 @@ angular.module('NarrowItDownApp', [])
 .service('MenuSearchService', MenuSearchService)
 .directive('foundItems', FoundItems);
 
+
 function FoundItems() {
     var ddo = {
         restrict: "AE",
@@ -19,16 +20,21 @@ function FoundItems() {
     return ddo;
 }
 
+
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
     var narrowItDown = this;
 
-    narrowItDown.searchTerm = "";
     narrowItDown.found = MenuSearchService.getItems();
+    narrowItDown.searchTerm = "";
 
     narrowItDown.performSearch = function() {
-        if (narrowItDown.searchTerm !== ""){
 
+        // Do not perform search and set found items to empty array if no search term entered.
+        if (narrowItDown.searchTerm === "") {
+            narrowItDown.found = [];
+        }
+        else {
             // Perform API call and 
             // check items description against search term.
             var promise = MenuSearchService.getMatchedMenuItems(narrowItDown.searchTerm)
@@ -44,6 +50,7 @@ function NarrowItDownController(MenuSearchService) {
     };
 
 }
+
 
 MenuSearchService.$inject = ['$http'];
 function MenuSearchService($http) {
@@ -61,7 +68,7 @@ function MenuSearchService($http) {
 
             var result = response.data.menu_items;
 
-            // process result and only keep items that match
+            // Process result and only keep items that match.
             var foundItems = [];
 
             result.forEach(function(item) {
@@ -70,7 +77,7 @@ function MenuSearchService($http) {
                 }
             });
 
-            // return processed items
+            // Return processed items.
             return foundItems;
         })
         .then(function(result) {
@@ -85,10 +92,8 @@ function MenuSearchService($http) {
     };
 
     service.getItems = function () {
-        console.log(items);
         return items;
     };
 }
-
 
 })();
