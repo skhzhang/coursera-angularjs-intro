@@ -1,0 +1,31 @@
+<br>
+<br>
+<br>
+<h3>Items found:</h3>
+<table>
+	<thead ng-hide="narrowItDown.found.length === 0">
+		<tr>
+			<th> Item Name </th>
+			<th> Short Name </th>
+			<th> Description </th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in narrowItDown.found">
+			<td>
+				<strong>{{ item.name }}</strong>
+			</td>
+			<td>
+				{{ item.short_name}}
+			</td>
+			<td>
+				{{ item.description }}
+			</td>
+			<td>
+				<button class="btn" ng-click="narrowItDown.removeItem($index);">Don't want this one!</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<div ng-show="narrowItDown.found.length === 0">Nothing found</div>
