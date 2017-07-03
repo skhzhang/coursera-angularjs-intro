@@ -1,0 +1,20 @@
+body {
+  font-size: 1.2em;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  display: none;
+}
+
+li[ui-sref] {
+  color: blue;
+  text-decoration: underline;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+li[ui-sref]:hover {
+  cursor: pointer;
+}

@@ -18,3 +18,7 @@ My assignment solutions for Yaakov Chaikin's '*Single Page Web Apps with Angular
 **Assignment 3**
 * [Requirements](https://github.com/jhu-ep-coursera/fullstack-course5/blob/15fb29f8880382696d22b61dc66be8fd38d975eb/assignments/assignment3/Assignment-3.md)
 * [My implementation](https://skhzhang.github.io/coursera-angularjs-intro/assignment3-solution/)
+
+**Assignment 4**
+* [Requirements](https://github.com/jhu-ep-coursera/fullstack-course5/blob/cff48ed6d74b916187c0ae8a6f60eb46f4976257/assignments/assignment4/Assignment-4.md)
+* [My implementation](https://skhzhang.github.io/coursera-angularjs-intro/assignment4-solution/)
