@@ -1,0 +1,37 @@
+<div class="container">
+  <h2 id="menu-categories-title" class="text-center">
+    Your information
+  </h2>
+  <div class="text-center">
+    <div ng-if="userInfoCtrl.userInfo">
+      <strong>Name:</strong> {{ userInfoCtrl.userInfo.firstname }} {{ userInfoCtrl.userInfo.lastname }}
+
+      <br><br>
+
+      <strong>Email:</strong> {{ userInfoCtrl.userInfo.email }}
+
+      <br><br>
+
+      <strong>Phone number:</strong> {{ userInfoCtrl.userInfo.phone }}
+
+      <br><br>
+
+      <strong>Favourite dish: </strong>
+
+      <img 
+        class="img-responsive" 
+        width="250" 
+        height="150" 
+        ng-src="{{userInfoCtrl.basePath}}/images/{{userInfoCtrl.userInfo.favdish}}.jpg" 
+        alt ="{{userInfoCtrl.favdishTitle}}" >
+      {{ userInfoCtrl.favdishTitle }}
+      <br>
+      {{ userInfoCtrl.favdishDes }}
+    </div>
+    <div ng-if="!userInfoCtrl.userInfo">
+      Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+    </div>
+  </div>
+
+
+</div>
