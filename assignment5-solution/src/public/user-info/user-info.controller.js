@@ -12,11 +12,13 @@ function UserInfoController(AccountDataService, ApiPath) {
   $ctrl.basePath = ApiPath;
 
   // Get favdish details.
-  AccountDataService.getMenuItem($ctrl.userInfo.favdish)
-  .then(function(response) {
-    $ctrl.favdishTitle = response.data.name;
-    $ctrl.favdishDes = response.data.description;
-  });
+  if ($ctrl.userInfo) {
+    AccountDataService.getMenuItem($ctrl.userInfo.favdish)
+    .then(function(response) {
+      $ctrl.favdishTitle = response.data.name;
+      $ctrl.favdishDes = response.data.description;
+    });
+  }
 
 }
 
