@@ -14,9 +14,7 @@ function AccountDataService($http, ApiPath) {
     var phonenumber = '';
     var favdish = '';
 
-    // Uncomment to clear firstname in local storage.
-    localStorage.removeItem('firstname');
-
+    // Get menu item specified from API.
     service.getMenuItem = function(shortName) {
         var response = $http({
           method: "GET",
@@ -26,6 +24,9 @@ function AccountDataService($http, ApiPath) {
         return response;
     }
 
+    // Set user information to local storage.
+    // TIP:
+    // See Storage tab in devtools to remove these items from localStorage.
     service.setUserInfo = function(userInfo) {
 
         localStorage.setItem('firstname', userInfo.firstname);
@@ -34,14 +35,14 @@ function AccountDataService($http, ApiPath) {
         localStorage.setItem('phone', userInfo.phone);
         localStorage.setItem('favdish', userInfo.favdish);
 
+
         return true;
     };
 
+    // Get user information from local storage.
     service.getUserInfo = function() {
 
         var result = {};
-
-        console.log(localStorage.getItem('firstname'));
 
         if (!localStorage.getItem('firstname')) {
           return null;

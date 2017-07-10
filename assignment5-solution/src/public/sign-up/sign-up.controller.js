@@ -8,6 +8,7 @@ SignUpController.$inject = ['AccountDataService'];
 function SignUpController(AccountDataService) {
   var $ctrl = this;
 
+  // On submission of the sign up form.
   $ctrl.submit = function (userInfo) {
 
     var favdishPromise = AccountDataService.getMenuItem(userInfo.favdish);
@@ -22,11 +23,7 @@ function SignUpController(AccountDataService) {
     })
     .catch(function(error) {
 
-
-      // Do nothing.
-
       $ctrl.successful = false;
-      console.log($ctrl.successful);
     });
 
   };
