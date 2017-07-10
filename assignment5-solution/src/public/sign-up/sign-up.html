@@ -49,7 +49,7 @@
       <input type="text" name="favdish" placeholder="Favourite menu item number"
         style="color: black;"
         ng-model="signUpCtrl.user.favdish"
-        required>
+        novalidate>
       <span ng-if="!signUpCtrl.successful">
         No such menu item exists.
       </span>
